@@ -7,39 +7,17 @@ import DocmigoImage from '../assets/images/Docmigo.png';
 import './Projects.css';
 
 const Projects = () => {
+  const [projects, setProjects] = useState([]);
   const [activeProject, setActiveProject] = useState(0);
   const containerRef = useRef(null);
-  
-  const projects = [
-    {
-      id: '1',
-      title: "Airbnb UX Research",
-      description: "Conducted comprehensive UX research to improve Airbnb's booking experience through competitive analysis and user interviews.",
-      tags: ["UX Research", "Competitive Analysis", "User Interviews"],
-      image: AirbnbImage
-    },
-    {
-      id: '2',
-      title: "Prime Video Usability",
-      description: "Performed usability testing and heuristic evaluation to enhance content discovery and watchlist management features.",
-      tags: ["Usability Testing", "Heuristic Evaluation", "Affinity Mapping"],
-      image: PrimeVideoImage
-    },
-    {
-      id: '3',
-      title: "Byblos Restaurant",
-      description: "Redesigned the ordering experience for Byblos restaurant, implementing a seamless online ordering system.",
-      tags: ["UI/UX Design", "User Flows", "Wireframing"],
-      image: ByblosImage
-    },
-    {
-      id: '4',
-      title: "Docmigo Hospital App",
-      description: "Designed a comprehensive communication and management app for doctors and receptionists to streamline hospital operations.",
-      tags: ["UX Research", "UI Design", "Stakeholder Interviews"],
-      image: DocmigoImage
-    }
-  ];
+
+useEffect(() => {
+  fetch("https://portfolio-admin-backend-78om.onrender.com/api/projects")
+    .then(res => res.json())
+    .then(data => setProjects(data))
+    .catch(err => console.error("Error fetching projects:", err));
+}, []);
+
 
   const handleCardHover = (index) => {
     setActiveProject(index);
@@ -49,7 +27,7 @@ const Projects = () => {
       const cardLeft = card.offsetLeft;
       const cardWidth = card.offsetWidth;
       const containerWidth = container.offsetWidth;
-      
+
       container.scrollTo({
         left: cardLeft - (containerWidth / 2) + (cardWidth / 2),
         behavior: 'smooth'
@@ -63,8 +41,8 @@ const Projects = () => {
         <h2 className="section-title">Featured Projects</h2>
         <div className="projects-container" ref={containerRef}>
           {projects.map((project, index) => (
-            <div 
-              key={project.id}
+            <div
+              key={project._id || index}
               className={`project-card ${activeProject === index ? 'active' : ''}`}
               onMouseEnter={() => handleCardHover(index)}
             >
@@ -81,7 +59,7 @@ const Projects = () => {
                   ))}
                 </div>
               </div>
-              <Link to={`/projects/${project.id}`} className="project-link"></Link>
+              <Link to={`/projects/${project._id}`} className="project-link"></Link>
             </div>
           ))}
         </div>
