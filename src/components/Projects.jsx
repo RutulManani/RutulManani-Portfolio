@@ -14,28 +14,28 @@ const Projects = () => {
   // Static data
   const staticProjects = [
     {
-      id: 'static-1',
+      id: '1',
       title: "Airbnb UX Research",
       description: "Conducted comprehensive UX research to improve Airbnb's booking experience through competitive analysis and user interviews.",
       tags: ["UX Research", "Competitive Analysis", "User Interviews"],
       image: AirbnbImage
     },
     {
-      id: 'static-2',
+      id: '2',
       title: "Prime Video Usability",
       description: "Performed usability testing and heuristic evaluation to enhance content discovery and watchlist management features.",
       tags: ["Usability Testing", "Heuristic Evaluation", "Affinity Mapping"],
       image: PrimeVideoImage
     },
     {
-      id: 'static-3',
+      id: '3',
       title: "Byblos Restaurant",
       description: "Redesigned the ordering experience for Byblos restaurant, implementing a seamless online ordering system.",
       tags: ["UI/UX Design", "User Flows", "Wireframing"],
       image: ByblosImage
     },
     {
-      id: 'static-4',
+      id: '4',
       title: "Docmigo Hospital App",
       description: "Designed a comprehensive communication and management app for doctors and receptionists to streamline hospital operations.",
       tags: ["UX Research", "UI Design", "Stakeholder Interviews"],
