@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './Hero.css';
+import ShinyText from './ShinyText'; // 👈 Make sure the path matches your structure
 
 const Hero = () => {
   return (
@@ -50,18 +51,18 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      <motion.p
-        style={{ 
-          color: 'var(--text-secondary)', 
-          maxWidth: '600px', 
-          marginBottom: '2rem'
-        }}
+      {/* ✨ Shiny animated subtitle */}
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.1 }}
+        style={{ marginBottom: '2rem' }}
       >
-        UX/UI Designer crafting meaningful digital experiences
-      </motion.p>
+        <ShinyText 
+          text="UI/UX designer blending product thinking, research, and front-end execution"
+          speed={4} 
+        />
+      </motion.div>
 
       <motion.div 
         className="hero-buttons"
