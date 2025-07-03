@@ -8,6 +8,7 @@ const ShinyText = ({ text, disabled = false, speed = 5, className = '' }) => {
     <div
       className={`shiny-text ${disabled ? 'disabled' : ''} ${className}`}
       style={{ animationDuration }}
+      data-text={text}
     >
       {text}
     </div>
