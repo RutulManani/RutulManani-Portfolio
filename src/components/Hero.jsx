@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './Hero.css';
-import ShinyText from './ShinyText'; // 👈 Make sure the path matches your structure
+import ShinyText from './ShinyText'; 
 
 const Hero = () => {
   return (
@@ -60,7 +60,7 @@ const Hero = () => {
       >
         <ShinyText 
           text="UI/UX designer blending product thinking, research, and front-end execution"
-          speed={4} 
+          disabled={false} speed={4} 
         />
       </motion.div>
 
