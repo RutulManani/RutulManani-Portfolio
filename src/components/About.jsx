@@ -25,8 +25,7 @@ const About = () => {
         <h2 className="section-title">About Me</h2>
         <div className="about-content">
           <div className="about-text">
-            <p>I'm a UX/UI designer based in Toronto, Canada, currently pursuing a Post Graduate Certificate in User Experience Design at Humber College. With a Bachelor's in Industrial and Product Design and 2.5 years of industry experience, I specialize in creating intuitive digital experiences across healthcare, education, finance, and more.</p>
-            <p>My approach combines design thinking with technical expertise, allowing me to bridge the gap between user needs and business goals. I'm proficient in methodologies like usability testing, competitive analysis, user interviews, and heuristic evaluation.</p>
+            <p>I'm a Toronto-based UX/UI designer and web developer with 3 years of cross-industry experience and a background in Industrial Design. Currently pursuing post-graduate studies in UX Design and Web Development at Humber College, I bring a blend of design thinking and technical expertise to craft intuitive digital experiences. From insurance to AI-driven platforms, I bridge design and development to deliver human-centered, scalable solutions.</p>
             <div className="skills">
               {skills.map((skill, index) => (
                 <span key={index} className="skill">{skill}</span>
