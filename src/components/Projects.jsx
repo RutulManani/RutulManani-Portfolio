@@ -1,57 +1,29 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import AirbnbImage from '../assets/images/Airbnb.png';
-import PrimeVideoImage from '../assets/images/PrimeVideo.png';
-import ByblosImage from '../assets/images/Byblos.png';
-import DocmigoImage from '../assets/images/Docmigo.png';
 import './Projects.css';
 
 const Projects = () => {
-  const [dynamicProjects, setDynamicProjects] = useState([]);
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const containerRef = useRef(null);
   const [activeProject, setActiveProject] = useState(0);
 
-  // Static data
-  const staticProjects = [
-    {
-      id: '1',
-      title: "Airbnb UX Research",
-      description: "Conducted comprehensive UX research to improve Airbnb's booking experience through competitive analysis and user interviews.",
-      tags: ["UX Research", "Competitive Analysis", "User Interviews"],
-      image: AirbnbImage
-    },
-    {
-      id: '2',
-      title: "Prime Video Usability",
-      description: "Performed usability testing and heuristic evaluation to enhance content discovery and watchlist management features.",
-      tags: ["Usability Testing", "Heuristic Evaluation", "Affinity Mapping"],
-      image: PrimeVideoImage
-    },
-    {
-      id: '3',
-      title: "Byblos Restaurant",
-      description: "Redesigned the ordering experience for Byblos restaurant, implementing a seamless online ordering system.",
-      tags: ["UI/UX Design", "User Flows", "Wireframing"],
-      image: ByblosImage
-    },
-    {
-      id: '4',
-      title: "Docmigo Hospital App",
-      description: "Designed a comprehensive communication and management app for doctors and receptionists to streamline hospital operations.",
-      tags: ["UX Research", "UI Design", "Stakeholder Interviews"],
-      image: DocmigoImage
-    }
-  ];
-
-  // Fetch from backend
   useEffect(() => {
     fetch("https://portfolio-admin-backend-78om.onrender.com/api/projects")
-      .then(res => res.json())
-      .then(data => setDynamicProjects(data))
-      .catch(err => console.error("Error fetching projects:", err));
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to fetch projects");
+        return res.json();
+      })
+      .then((data) => {
+        setProjects(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
   }, []);
-
-  const combinedProjects = [...staticProjects, ...dynamicProjects];
 
   const handleCardHover = (index) => {
     setActiveProject(index);
@@ -62,20 +34,24 @@ const Projects = () => {
       const cardWidth = card.offsetWidth;
       const containerWidth = container.offsetWidth;
       container.scrollTo({
-        left: cardLeft - (containerWidth / 2) + (cardWidth / 2),
-        behavior: 'smooth'
+        left: cardLeft - containerWidth / 2 + cardWidth / 2,
+        behavior: 'smooth',
       });
     }
   };
+
+  if (loading) return <div className="loading-message">Loading projects...</div>;
+  if (error) return <div className="error-message">Error: {error}</div>;
+  if (projects.length === 0) return <div className="empty-message">No projects found.</div>;
 
   return (
     <section id="projects" className="section">
       <div className="container">
         <h2 className="section-title">Featured Projects</h2>
         <div className="projects-container" ref={containerRef}>
-          {combinedProjects.map((project, index) => (
-            <div 
-              key={project._id || project.id}
+          {projects.map((project, index) => (
+            <div
+              key={project._id}
               className={`project-card ${activeProject === index ? 'active' : ''}`}
               onMouseEnter={() => handleCardHover(index)}
             >
@@ -91,8 +67,13 @@ const Projects = () => {
                     <span key={i} className="project-tag">{tag}</span>
                   ))}
                 </div>
+                {project.url && (
+                  <a href={project.url} target="_blank" rel="noopener noreferrer" className="project-url">
+                    Visit Project
+                  </a>
+                )}
               </div>
-              <Link to={`/projects/${project._id || project.id}`} className="project-link" />
+              <Link to={`/projects/${project._id}`} className="project-link" />
             </div>
           ))}
         </div>
