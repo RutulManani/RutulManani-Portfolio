@@ -11,8 +11,7 @@ This full-stack portfolio project showcases my work through a React-based fronte
 ## Live Links
 - **Frontend (React):** [https://rutulmanani-portfolio.onrender.com](https://rutulmanani-portfolio.onrender.com)
 - **Backend (Express API):** [https://portfolio-admin-backend-78om.onrender.com/api/projects](https://portfolio-admin-backend-78om.onrender.com/api/projects)
-- **Admin Dashboard:** [https://portfolio-admin-backend-78om.onrender.com/projects](https://portfolio-admin-backend-78om.onrender.com/projects)
-- 
+
 ## Key Features
 
 ### Frontend (React)
