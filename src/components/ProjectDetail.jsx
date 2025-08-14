@@ -12,8 +12,7 @@ const ProjectDetail = () => {
       title: "Airbnb UX Research",
       role: "UX Researcher & Designer, UI Designer",
       methodologies: ["Competitive analysis", "User Interviews", "Journey Mapping"],
-      techStack: ["Figma", "Miro", "UserTesting.com"], // Added tech stack
-      url: "https://airbnb.com", // Added project URL
+      techStack: ["Figma", "Miro", "UserTesting.com"],
       overview: "Our project goal was to improve the effectiveness of Airbnb's services by connecting people to unique travel experiences, facilitating stays in local homes, and cultivating a community where hosts may thrive.",
       hypothesis: "In our competitive analysis, we found the purchase path to be lacking, often preventing users from actually booking something. We believe if we talk to potential users about the ideal journey, they will come up with a more successful way to book an accommodation.",
       ethics: "Ethical standards were upheld during the research, with participants consenting to interviews and being informed about their rights and data privacy.",
@@ -60,8 +59,7 @@ const ProjectDetail = () => {
       title: "Prime Video Usability",
       role: "UX Designer, UI Designer",
       methodologies: ["Usability Testing", "Heuristic evaluation", "Affinity Mapping"],
-      techStack: ["Figma", "Optimal Workshop", "Google Analytics"], // Added tech stack
-      url: "https://primevideo.com", // Added project URL
+      techStack: ["Figma", "Optimal Workshop", "Google Analytics"],
       overview: "This project aimed to conduct thorough usability testing on Amazon Prime Video to uncover pain points and enhance user experience in the streaming landscape.",
       goals: "Assess the platform's usability, effectiveness, and user satisfaction across navigation, content discovery, watchlist management, and playback experience.",
       process: [
@@ -106,8 +104,7 @@ const ProjectDetail = () => {
       title: "Byblos Restaurant",
       role: "UI/UX Designer",
       methodologies: ["User flows", "Paper Prototyping", "Wireframing"],
-      techStack: ["Adobe XD", "Photoshop", "HTML/CSS"], // Added tech stack
-      url: "https://byblosrestaurant.com", // Added project URL
+      techStack: ["Adobe XD", "Photoshop", "HTML/CSS"],
       overview: "Our objective was to streamline the ordering process for Byblos, providing customers with flexibility to place orders from anywhere.",
       problem: "The website solely provided a menu without ordering capability, limiting user engagement and transactional capabilities.",
       targetAudience: "Tourists, locals, students, families, and those interested in Eastern Mediterranean cuisine",
@@ -153,8 +150,7 @@ const ProjectDetail = () => {
       title: "Docmigo Hospital App",
       role: "UX Researcher & Designer, Graphic Designer",
       methodologies: ["Stakeholder interviews", "User surveys", "Journey Mapping"],
-      techStack: ["Figma", "React Native", "Firebase"], // Added tech stack
-      url: "https://docmigoapp.com", // Added project URL
+      techStack: ["Figma", "React Native", "Firebase"],
       overview: "Developed a communication and management app for doctors and receptionists to streamline hospital operations and minimize medical errors.",
       objectives: [
         "Reduce hospital expenses and operational inefficiency",
@@ -233,7 +229,6 @@ const ProjectDetail = () => {
               </div>
             </div>
 
-            {/* Added Tech Stack Section */}
             <div className="project-meta-item">
               <h3>Tech Stack</h3>
               <div className="tech-stack-tags">
@@ -350,21 +345,6 @@ const ProjectDetail = () => {
           <h2 className="project-section-title">Key Takeaways</h2>
           <p>{project.takeaways}</p>
         </section>
-
-        {/* Added Project URL Section */}
-        {project.url && (
-          <section className="project-section">
-            <h2 className="project-section-title">Live Project</h2>
-            <a 
-              href={project.url} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="btn btn-primary"
-            >
-              View Live Project <i className="fas fa-external-link-alt"></i>
-            </a>
-          </section>
-        )}
 
         <div className="project-navigation">
           <button onClick={handleBackToProjects} className="btn btn-secondary">

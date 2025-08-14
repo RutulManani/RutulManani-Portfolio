@@ -67,11 +67,6 @@ const Projects = () => {
                     <span key={i} className="project-tag">{tag}</span>
                   ))}
                 </div>
-                {project.url && (
-                  <a href={project.url} target="_blank" rel="noopener noreferrer" className="project-url">
-                    Visit Project
-                  </a>
-                )}
               </div>
               <Link to={`/projects/${project._id}`} className="project-link" />
             </div>
